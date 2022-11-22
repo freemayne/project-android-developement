@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput } from "react-native"
 
 
-const CustomInput = ({label,inputConfig}) => {
+const CustomInput = ({style,label,inputConfig}) => {
   
  
   const inputStyles = [styles.input]
@@ -15,7 +15,7 @@ const CustomInput = ({label,inputConfig}) => {
       <Text style={styles.label}>{label}</Text>
     <View style={styles.inputContainer}>
       <TextInput
-      style={inputStyles}
+      style={[inputStyles,style]}
       {...inputConfig} // gör att man kan konfigurera inputen i andra komponenter där man använder den.
       />
     </View>

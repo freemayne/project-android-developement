@@ -10,6 +10,7 @@ export const initDB = () => {
         `CREATE TABLE IF NOT EXISTS blog (
         id INTEGER PRIMARY KEY NOT NULL,
         title TEXT NOT NULL,
+        city TEXT NOT NULL,
         imageUri TEXT NOT NULL,
         body TEXT NOT NULL)`,
         [],
@@ -19,6 +20,11 @@ export const initDB = () => {
     });
   });
 };
+
+
+
+
+
 export const findAll = () => {
   return new Promise((resolve, reject) => {
     db.transaction((transaction) => {
@@ -28,7 +34,7 @@ export const findAll = () => {
         (_, res) =>
           resolve(
             res.rows._array.map(
-              (row) => new Blog(row.id, row.title, row.imageUri, row.body)
+              (row) => new Blog(row.id, row.title,row.city, row.imageUri, row.body)
             )
           ),
         (_, err) => reject(err)
@@ -41,9 +47,9 @@ export const insert = (blog) => {
   return new Promise((resolve, reject) => {
     db.transaction((transaction) => {
       transaction.executeSql(
-        `INSERT INTO blog (title,body,imageUri)
-        VALUES (?,?,?)`,
-        [blog.title, blog.body, blog.imageUri],
+        `INSERT INTO blog (title,city,body,imageUri)
+        VALUES (?,?,?,?)`,
+        [blog.title,blog.city,blog.body,blog.imageUri],
         (_, res) => resolve(res),
         (_, err) => reject(err)
       );

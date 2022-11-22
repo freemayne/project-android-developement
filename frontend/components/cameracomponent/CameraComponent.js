@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import Button from "../customcomps/Button";
+import {Ionicons} from '@expo/vector-icons'
 
 const CameraComponent = ({image, setUriData}) => {
  
@@ -56,7 +57,7 @@ const CameraComponent = ({image, setUriData}) => {
       {imageTaken}
 
       </View>
-      {!image && <Button onPress={takeImageHandler} >Take image</Button>
+      {!image && <Button onPress={takeImageHandler} > <Ionicons name='camera' size={18}  />Take image</Button>
 }
 
     </View>
