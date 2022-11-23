@@ -29,7 +29,7 @@ const BlogScreen = ({ navigation }) => {
 
   useEffect(() => {
     navigation.setOptions({
-      title: "My travel blog",
+      title: "My travel diary",
       headerRight: ({ tintColor }) => (
         <IconButton
           icon="add"

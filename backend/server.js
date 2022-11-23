@@ -21,7 +21,7 @@ fetch(
    
 } )
 
-server.get('/:city',(req,res) =>{
+server.get('/findcity/:city',(req,res) =>{
   const city = req.params.city
 console.log('called2')
 fetch(
